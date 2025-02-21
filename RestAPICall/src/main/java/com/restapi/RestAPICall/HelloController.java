@@ -1,9 +1,7 @@
 package com.restapi.RestAPICall;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.restapi.RestAPICall.DTO.UserDTO;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class HelloController {
@@ -22,6 +20,11 @@ public class HelloController {
         return "Hello " + name + " from BridgeLabz";
     }
 
+
+    @PostMapping("/post")
+    public String sayHello(@RequestBody UserDTO user) {
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
+    }
 
 
 }
